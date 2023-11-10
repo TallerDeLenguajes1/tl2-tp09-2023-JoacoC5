@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-public class Usuarios
+namespace EspacioModels;
+
+public class Usuario
 {
     private int id;
     private string nombreDeUsuario;

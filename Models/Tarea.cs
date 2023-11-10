@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+namespace EspacioModels;
+
 public enum EstadoTarea
 {
     Ideas,
@@ -15,6 +17,7 @@ public enum EstadoTarea
 public class Tarea
 {
     private int id;
+    private int idTablero;
     private string nombre;
     private string descripcion;
     private string color;
@@ -27,4 +30,5 @@ public class Tarea
     public string Color { get => color; set => color = value; }
     public EstadoTarea Estado { get => estado; set => estado = value; }
     public int? IdUsuarioAsignado { get => idUsuarioAsignado; set => idUsuarioAsignado = value; }
+    public int IdTablero { get => idTablero; set => idTablero = value; }
 }

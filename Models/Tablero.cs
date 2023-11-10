@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+namespace EspacioModels;
+
 public class Tablero
 {
     private int id;
