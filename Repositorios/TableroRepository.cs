@@ -9,7 +9,7 @@ namespace EspacioRepository;
 
 public class TableroRepository : ITableroRepository
 {
-    private string cadenaConexion = "Data Source:DB/kanban.db:Cache:Shared";
+    private string cadenaConexion = "Data Source=DB/Kanban.db;Cache=Shared";
 
     public void CreateTablero(Tablero nuevo)
     {

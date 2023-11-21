@@ -11,4 +11,5 @@ public interface ITareaRepository
     public List<Tarea> GetAllTareabyTablero(int idTablero);
     public void SetUsuario(int idusuario, int idTarea);
     public void DeleteTarea(int idBuscado);
+    //public int GetCantTareaByEstado(int estadoBuscado);
 }

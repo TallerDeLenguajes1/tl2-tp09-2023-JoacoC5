@@ -10,7 +10,7 @@ namespace EspacioRepository;
 
 public class TareaRepository : ITareaRepository
 {
-    private string cadenaConexion = "Date Source:DBkanban.db:Cache=Source";
+    private string cadenaConexion = "Data Source=DB/Kanban.db;Cache=Shared";
 
     public void CreateTarea(int idTablero, Tarea nuevo)
     {
@@ -159,18 +159,40 @@ public class TareaRepository : ITareaRepository
     }
     public void DeleteTarea(int idBuscado)
     {
-        var query = @"DELETE * FROM Tarea WHERE id_tarea = @idBuscado;";
+        var query = @"DELETE FROM Tarea WHERE id_tarea = @idBuscado;";
 
         using (SQLiteConnection connection = new SQLiteConnection(cadenaConexion))
         {
             connection.Open();
 
             var command = new SQLiteCommand(query, connection);
-            command.Parameters.Add(new SQLiteParameter("@id_tarea", idBuscado));
+            command.Parameters.Add(new SQLiteParameter("@idBuscado", idBuscado));
 
             command.ExecuteNonQuery();
 
             connection.Close();
         }
     }
+
+    /* public int GetCantTareaByEstado(int estadoBuscado)
+     {
+         int cont = 0;
+
+         var query = @"GET * FROM Tarea WHERE estado = @estadoBuscado;";
+
+         using (SQLiteConnection connection = new SQLiteConnection(cadenaConexion))
+         {
+             var command = new SQLiteCommand(query, connection);
+             connection.Open();
+
+             using (SQLiteDataReader reader = command.ExecuteReader())
+             {
+                 while (reader.Read())
+                 {
+                     cont++;
+                 }
+             }
+         }
+         return cont;
+     }*/
 }
